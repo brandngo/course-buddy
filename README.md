@@ -2,7 +2,7 @@
 
 A interface for University of Waterloo math majors planning their courses
 
-To run this app use: \
+To run this app use:
 
 ### `npm start`
 
