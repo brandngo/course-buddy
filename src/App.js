@@ -18,8 +18,7 @@ function App() {
         <Navibar/>
         <Switch>
           <Route
-            exact
-            path="/"
+            exact path="/"
             component={Home}
           />
         </Switch>
