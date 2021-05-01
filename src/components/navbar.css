@@ -1,0 +1,15 @@
+
+
+a,
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #bbb;
+}
+.nav-item {
+  font-size: 18px;
+  font-family: Open Sans;
+}
+.navbar-brand {
+  font-size: 20px;
+  font-family: Open Sans;
+}
