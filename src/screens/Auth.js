@@ -62,24 +62,28 @@ export default class Auth extends Component {
     }
 
     render() {
-        return (
-            <div> // Container Div.
-                <input placeholder="Username"
-                    type="text"
-                    onChange={(e) =>
-                        this.setState({ username: e.target.value })}></input>
-                <br />
-                <input placeholder="Password"
-                    type="text"
-                    onChange={(e) =>
-                        this.setState({ password: e.target.value })}></input>
-                <button onClick={this.checkIfUserExistsWhileSignUp.bind(this)}>
-                    Sign Up!
+        if (!this.state.isLogged) { // Not logged in here, forms are displayed
+            return (
+                <div> // Container Div.
+                    <input placeholder="Username"
+                        type="text"
+                        onChange={(e) =>
+                            this.setState({ username: e.target.value })}></input>
+                    <br />
+                    <input placeholder="Password"
+                        type="text"
+                        onChange={(e) =>
+                            this.setState({ password: e.target.value })}></input>
+                    <button onClick={this.checkIfUserExistsWhileSignUp.bind(this)}>
+                        Sign Up!
                 </button>
-                <button onClick={this.checkIfUserExistsWhileLogIn.bind(this)}>
-                    Log In!
+                    <button onClick={this.checkIfUserExistsWhileLogIn.bind(this)}>
+                        Log In!
                 </button>
-            </div> // Container Div.
-        )
+                </div> // Container Div.
+            )
+        } else {
+            <div>You're logged in!</div> // Logged in here
+        }
     }
 }
