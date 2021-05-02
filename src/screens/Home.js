@@ -1,60 +1,101 @@
-import React, { Component } from "react";
-import DroppableContainer from '../components/DroppableContainer/DroppableContainer.js';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { DragDropContext } from 'react-beautiful-dnd'
+import styled from 'styled-components'
 
-const data = {
-  container1: [
-    { id: 1, name: "item 1" },
-    { id: 2, name: "item 2" },
-    { id: 3, name: "item 3" },
-    { id: 4, name: "item 4" },
-    { id: 5, name: "item 5" },
-    { id: 6, name: "item 6" }
-  ],
-  container2: [
-    { id: 101, name: "other 1" },
-    { id: 102, name: "other 2" },
-    { id: 103, name: "other 3" },
-    { id: 104, name: "other 4" }
-  ]
-};
+import initialData from './initial-data'
+import Droppables from '../components/DnDComponents/Droppables.js'
 
-class Home extends Component {
-  state = {
-    ...data
-  };
+const Container = styled.div`
+  display:flex;
+`
 
-  onDragEnd = ({ destination, source }) => {
-    if (destination && source) {
-      this.setState(prevState => {
-        const newData = cloneDeep(prevState);
+class Home extends React.Component {
+  state = initialData
 
-        newData[destination.droppableId].splice(
-          destination.index,
-          0,
-          ...newData[source.droppableId].splice(source.index, 1)
-        );
+  onDragEnd = result => {
+    const { destination, source, draggableId } = result
 
-        return {
-          ...newData
-        };
-      });
+    if (!destination) {
+      return
     }
-  };
 
-  handleReset = () => {
-    this.setState({ ...data });
-  };
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return
+    }
 
-  render = () => (
-    <div style={{ padding: 20 }}>
-      <DraggableContainer data={this.state} handleChange={this.onDragEnd} />
-      <div style={{ textAlign: "center", marginTop: 20 }}>
-        <button className="btn btn-primary" onClick={this.handleReset}>
-          Reset
-        </button>
-      </div>
-    </div>
-  );
+    const start = this.state.columns[source.droppableId]
+    const finish = this.state.columns[destination.droppableId]
+
+    if (start === finish) {
+      const newTaskIds = Array.from(start.taskIds)
+      newTaskIds.splice(source.index, 1)
+      newTaskIds.splice(destination.index, 0, draggableId)
+
+      const newColumn = {
+        ...start,
+        taskIds: newTaskIds
+      }
+
+      const newState = {
+        ...this.state,
+        columns: {
+          ...this.state.columns,
+          [newColumn.id]: newColumn
+        }
+      }
+
+      this.setState(newState)
+      return
+    }
+
+    // Moving from one list to another
+    const startTaskIds = Array.from(start.taskIds)
+    startTaskIds.splice(source.index, 1)
+    const newStart = {
+      ...start,
+      taskIds: startTaskIds
+    }
+
+    const finishTaskIds = Array.from(finish.taskIds)
+    finishTaskIds.splice(destination.index, 0, draggableId)
+    const newFinish = {
+      ...finish,
+      taskIds: finishTaskIds
+    }
+
+    const newState = {
+      ...this.state,
+      columns: {
+        ...this.state.columns,
+        [newStart.id]: newStart,
+        [newFinish.id]: newFinish
+      }
+    }
+    this.setState(newState)
+  }
+
+  render() {
+    return (
+      <DragDropContext onDragEnd={this.onDragEnd}>
+        <Container>
+          {this.state.columnOrder.map(columnId => {
+            const column = this.state.columns[columnId]
+            const tasks = column.taskIds.map(
+              taskId => this.state.tasks[taskId]
+            )
+
+            return (
+              <Droppables key={column.id} column={column} tasks={tasks} />
+            )
+          })}
+        </Container>
+      </DragDropContext>
+    )
+  }
 }
 
 export default Home;
