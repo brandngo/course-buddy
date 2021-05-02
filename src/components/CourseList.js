@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
+import ReactDOM from "react-dom";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 function CourseList(props) {
   // courses is an array of course taken during props.year
@@ -8,16 +10,34 @@ function CourseList(props) {
   return (
     <div>
       <Container>
-        <Row>
-          <Container style={{width: "30%"}}>
-            <h3 style={{textAlign: "center"}}>{props.type}</h3>
-            <ListGroup>
-              {courses.map((course) => {
-                return <ListGroup.Item action>{course}</ListGroup.Item>;
-              })}
-            </ListGroup>
-          </Container>
-        </Row>
+        <Droppable droppableId="">
+          {(provided, snapshot) => (
+            <div
+                ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}>
+                {this.state.items.map((item, index) => (
+                    <Draggable
+                        key={item.id}
+                        draggableId={item.id}
+                        index={index}>
+                        {(provided, snapshot) => (
+                            <div
+                                ref={provided.innerRef}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                style={getItemStyle(
+                                    snapshot.isDragging,
+                                    provided.draggableProps.style
+                                )}>
+                                {item.content}
+                            </div>
+                        )}
+                    </Draggable>
+                ))}
+                {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
       </Container>
     </div>
 
