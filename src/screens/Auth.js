@@ -1,6 +1,7 @@
 import firebase from "firebase";
 import React from "react";
 import App from "../App";
+import Dashboard from "./Dashboard";
 import Enter from "./Enter";
 
 export default class Auth extends React.Component {
@@ -8,7 +9,6 @@ export default class Auth extends React.Component {
         super();
         this.state = {
             user: null,
-            usernameValue: "",
         };
         this.authListener = this.authListener.bind(this);
     }
@@ -22,8 +22,6 @@ export default class Auth extends React.Component {
         });
     }
 
-    initialToggle
-
     componentDidMount() {
         this.authListener();
         if (this.state.user) {
@@ -33,7 +31,7 @@ export default class Auth extends React.Component {
 
     render() {
         if (this.state.user) {
-            return <App user={this.state.user}></App>;
+            return <Dashboard />;
         } else return <Enter />;
     }
 }
