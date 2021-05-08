@@ -44,7 +44,8 @@ render() {
       <h1>4b</h1>
       </Box>
       </div>
-      <h2 style={{position: 'relative', textAlign: 'center'}}>These are the courses:</h2>
+      <h1 //style={{position: 'relative', textAlign: 'center'}}
+      >Course Categories:</h1>
       <div className="container2">
       <Box border={1} width="25%" height="100vh" alignItems="center">
       <h1>Required Courses</h1>
@@ -147,7 +148,11 @@ render() {
             <th>Requirements</th>
             </tr>
             </tbody>
-            </Table>
+          </Table>
+        <h2>Links to resources we used</h2>
+        <p>1. <a href="https://ucalendar.uwaterloo.ca/2122/COURSE/course-CS.html">The Undergrad Calendar, Cs Courses</a></p>
+        <p>2. <a href="https://ugradcalendar.uwaterloo.ca/page/MATH-Computer-Science-Plan-Requirements">The Undergrad Calendar, Cs Degree Requirements</a></p>
+        <p>3. <a href="https://cs.uwaterloo.ca/current/programs/suggested/2018-2019/bcs">Uwaterloo Cs Suggested Course Sequence</a></p>
     </div>
   )
 }
