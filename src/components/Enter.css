@@ -1,0 +1,17 @@
+.first{
+    margin-top: 12%;
+    
+}
+
+.first .next{
+    margin: auto;
+    width: 20%;
+    padding: 12px;
+    border: 2px black solid;
+    box-shadow: 6px 10px rgb(58, 58, 58);
+    padding-left: 2%;
+}
+
+.first .next .login .but2{
+    margin-left: 10px;
+}

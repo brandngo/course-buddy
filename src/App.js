@@ -8,6 +8,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 // custom components
 import Home from './screens/Home.js'
+import Enter from "./components/Enter.js"
 import Navibar from './components/Navibar.js';
 
 
@@ -20,7 +21,7 @@ function App() {
           <Route
             exact
             path="/"
-            component={Home}
+            component={Enter}
           />
         </Switch>
       </Router>
