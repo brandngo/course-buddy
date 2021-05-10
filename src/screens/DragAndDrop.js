@@ -84,6 +84,28 @@ const headerId = {
   13: "5b",
 };
 
+const sanitize = (arr) => {
+  return arr ? arr : [];
+}
+
+function getData(data) {
+  const compile = {
+    "1a": sanitize(data["4"]),
+    "1b": sanitize(data["5"]),
+    "2a": sanitize(data["6"]),
+    "2b": sanitize(data["7"]),
+    "3a": sanitize(data["8"]),
+    "3b": sanitize(data["9"]),
+    "4a": sanitize(data["10"]),
+    "4b": sanitize(data["11"]),
+    "5a": sanitize(data["12"]),
+    "5b": sanitize(data["13"]),
+  }
+  console.log(compile);
+  return compile;
+
+}
+
 function DragAndDrop() {
   const [state, setState] = useState(data);
 
@@ -126,7 +148,7 @@ function DragAndDrop() {
         <button
           type="button"
           onClick={() => {
-            console.log(state["5"]);
+            getData(state);
           }}
         >
           retrieve
