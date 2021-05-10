@@ -19,44 +19,45 @@ render() {
     <div>
     <h1>Term-Planner:</h1>
     <div className="container" width="100vw">
-      <Box border={1} width="12.5%" height="40vh" alignItems="center">
+      <Box border={1} width="18%" height="40vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>1a</h1>
       </Box>
-      <Box border={1} width="12.5%" height="40vh" alignItems="center">
+      <br></br>
+      <Box border={1} width="18%" height="40vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>1b</h1>
       </Box>
-      <Box border={1} width="12.5%" height="40vh" alignItems="center">
+      <Box border={1} width="18%" height="40vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>2a</h1>
       </Box>
-      <Box border={1} width="12.5%" height="40vh" alignItems="center">
+      <Box border={1} width="18%" height="40vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>2b</h1>
       </Box>
-      <Box border={1} width="12.5%" height="40vh" alignItems="center">
+      <Box border={1} width="18%" height="40vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>3a</h1>
       </Box>
-      <Box border={1} width="12.5%" height="40vh" alignItems="center">
+      <Box border={1} width="18%" height="40vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>3b</h1>
       </Box>
-      <Box border={1} width="12.5%" height="40vh" alignItems="center">
+      <Box border={1} width="18%" height="40vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>4a</h1>
       </Box>
-      <Box border={1} width="12.5%" height="40vh" alignItems="center">
+      <Box border={1} width="18%" height="40vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>4b</h1>
       </Box>
       </div>
       <h1 //style={{position: 'relative', textAlign: 'center'}}
       >Course Categories:</h1>
       <div className="container2">
-      <Box border={1} width="25%" height="100vh" alignItems="center">
+      <Box border={1} width="25%" height="100vh" alignItems="center" borderRadius={16} marginRight= "2%"> 
       <h1>Required Courses</h1>
       </Box>
-      <Box border={1} width="50%" height="100vh" alignItems="center">
+      <Box border={1} width="50%" height="100vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>Recommended Courses</h1>
       </Box>
-      <Box border={1} width="12.5%" height="100vh" alignItems="center">
+      <Box border={1} width="12.5%" height="100vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>Electives</h1>
       </Box>
-      <Box border={1} width="12.5%" height="100vh" alignItems="center">
+      <Box border={1} width="12.5%" height="100vh" alignItems="center" borderRadius={16} marginRight= "2%">
       <h1>Comms</h1>
       </Box>
       </div>
@@ -94,34 +95,34 @@ render() {
           <tbody>
             <tr>
             <th>1</th>
-            <th>Cs135/145</th>
-            <th>Cs136/146</th>
-            <th>Cs246</th>
-            <th>Cs240</th>
-            <th>Cs341</th>
-            <th>Cs3XX/4XX</th>
+            <th>CS 135/145</th>
+            <th>CS 136/146</th>
+            <th>CS 246</th>
+            <th>CS 240</th>
+            <th>CS 341</th>
+            <th>CS 3XX/4XX</th>
             <th>Courses</th>
             <th>Courses</th>
             </tr>
             <tr>
             <th>2</th>
-            <th>Math135</th>
-            <th>Math136</th>
-            <th>Cs245</th>
-            <th>Cs241</th>
-            <th>Cs350</th>
-            <th>Cs3XX/4XX</th>
+            <th>MATH 135</th>
+            <th>MATH 136</th>
+            <th>CS 245</th>
+            <th>CS 241</th>
+            <th>CS 350</th>
+            <th>CS 3XX/4XX</th>
             <th>To</th>
             <th>To</th>
             </tr>
             <tr>
             <th>3</th>
-            <th>Math137</th>
-            <th>Math138</th>
-            <th>Stat230</th>
-            <th>Cs251</th>
-            <th>Stat231</th>
-            <th>Non-Math</th>
+            <th>MATH 137</th>
+            <th>MATH 138</th>
+            <th>STAT 230</th>
+            <th>CS 251</th>
+            <th>STAT 231</th>
+            <th>Non-MATH</th>
             <th>Complete</th>
             <th>Complete</th>
             </tr>
@@ -129,19 +130,19 @@ render() {
             <th>4</th>
             <th>List 1 Communication</th>
             <th>List 2 Communication</th>
-            <th>Non-Math</th>
-            <th>Math239</th>
-            <th>Non-math</th>
-            <th>Non-math</th>
+            <th>Non-MATH</th>
+            <th>MATH 239</th>
+            <th>Non-MATH</th>
+            <th>Non-MATH</th>
             <th>Degree</th>
             <th>Degree</th>
             </tr>
             <tr>
             <th>5</th>
-            <th>Non-math</th>
-            <th>Non-math</th>
-            <th>Non-math</th>
-            <th>Non-math</th>
+            <th>Non-MATH</th>
+            <th>Non-MATH</th>
+            <th>Non-MATH</th>
+            <th>Non-MATH</th>
             <th>Elective</th>
             <th>Elective</th>
             <th>Requirements</th>
