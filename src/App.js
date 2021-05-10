@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // bootstrap components
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
+import Enter from "./screens/Enter"
 
 // custom components
 import Home from './screens/Home.js'
@@ -20,7 +21,7 @@ function App() {
           <Route
             exact
             path="/"
-            component={Home}
+            component={Enter}
           />
         </Switch>
       </Router>
