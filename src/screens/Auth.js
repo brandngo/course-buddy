@@ -2,6 +2,7 @@ import firebase from "firebase";
 import React from "react";
 import App from "../App";
 import Dashboard from "./Dashboard";
+import DragAndDrop from "./DragAndDrop";
 import Enter from "./Enter";
 
 export default class Auth extends React.Component {
@@ -31,7 +32,7 @@ export default class Auth extends React.Component {
 
     render() {
         if (this.state.user) {
-            return <Dashboard />;
+            return <DragAndDrop />;
         } else return <Enter />;
     }
 }
