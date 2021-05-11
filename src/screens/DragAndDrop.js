@@ -88,7 +88,7 @@ const sanitize = (arr) => {
   return arr ? arr : [];
 }
 
-const courses = ["1a", "1b", "2a", "2b", "3a", "3b"];
+const courses = ["1a", "1b", "2a", "2b", "3a", "3b", "4a", "4b", "5a", "5b"];
 
 function getData(data) {
   const compile = {
