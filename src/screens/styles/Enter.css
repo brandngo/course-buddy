@@ -1,0 +1,21 @@
+/* Enter.css */
+
+.App {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid;
+    box-shadow: 5px 10px 8px #888888;
+
+  }
+
+.container {
+    margin-top:32vh;
+    /*border: 1px black*/
+}
+
+  .auth-container {
+      margin-top: "25%";
+      padding-top: "50%";
+      /*border: 1px black*/
+  }

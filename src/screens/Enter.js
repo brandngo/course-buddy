@@ -1,6 +1,10 @@
 import React from "react";
 import firebase from "firebase";
 import "../util/Fire";
+import "./styles/Enter.css"
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button';
+import { ButtonGroup } from "@material-ui/core";
 
 export default class Enter extends React.Component {
     constructor(props) {
@@ -34,19 +38,28 @@ export default class Enter extends React.Component {
 
     render() {
         return (
-            <div>
-                <input placeholder="email"
-                    onChange={(event) =>
-                        this.setState({ email: event.target.value })
-                    }></input>
-                <input placeholder="password"
-                    onChange={(event) => {
-                        this.setState({ password: event.target.value });
-                    }}></input>
-                <p>{this.state.message}</p>
-                <button onClick={this.signIn}>Sign In</button>
-                <button onClick={this.signUp}>Sign Up</button>
+            <div class="container">
+                <div class="App" >
+                    <h1 fontFamily="Roboto">Login</h1>
+                    <div class="auth-container">
+                        <TextField required id="standard-required" label="Email"
+                            onChange={(event) =>
+                                this.setState({ email: event.target.value })
+                            } />
+                        <br />
+                        <TextField required id="standard-required" label="Password"
+                            onChange={(event) => {
+                                this.setState({ password: event.target.value });
+                            }} />
+                        <br /><br />
+                        <p style={{ color: "red" }}>{this.state.message}</p>
+                        <ButtonGroup>
+                            <Button onClick={this.signIn}>Log in</Button>
+                            <Button onClick={this.signUp}>Sign Up</Button>
+                        </ButtonGroup>
+                    </div>
+                </div>
             </div>
-        );
+        )
     }
 }
