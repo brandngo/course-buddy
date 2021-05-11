@@ -1,0 +1,42 @@
+a:visited{
+    color: darkmagenta;
+}
+
+a:active{
+    color: red;
+}
+
+.container{
+    display: flex;
+    flex-direction: horizontal;
+    position: relative;
+    left: 0vw;
+    width: 100%;
+}
+
+Box{
+    padding-left: 1%;
+    margin: 200px;
+    border: 1;
+    width: "12.5%"; 
+    height: "40vh"; 
+    align-Items: "center" ;
+    border-Radius: 16;
+}
+
+.container2{
+    display: flex;
+    flex-direction: horizontal;
+    padding: 2vw;
+    position: relative;
+    left: 0vw;
+}
+
+.main{
+    display: flex;
+    flex-direction: vertical; 
+}
+
+.first {
+    margin-left: 2%;
+}
