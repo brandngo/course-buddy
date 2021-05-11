@@ -98,12 +98,6 @@ const courseData = {
       { id: 'task-83', content: 'SPCOM 228' }
     ]
   },
-  years: {
-    oneA: [
-
-    ]
-
-  }
 }
 
 export default courseData
