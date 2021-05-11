@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // bootstrap components
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
+import Auth from "./screens/Auth"
 
 // custom components
-import Home from './screens/Home.js'
 import Navibar from './components/Navibar.js';
 
 
@@ -15,12 +15,12 @@ function App() {
   return (
     <React.Fragment>
       <Router>
-        <Navibar/>
+        <Navibar />
         <Switch>
           <Route
             exact
             path="/"
-            component={Home}
+            component={Auth}
           />
         </Switch>
       </Router>

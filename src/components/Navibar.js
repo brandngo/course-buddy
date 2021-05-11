@@ -7,9 +7,9 @@ import { Image, Nav, Navbar } from 'react-bootstrap';
 function Navibar() {
 
   return (
-    <Navbar expand="md" bg="dark">
-      <Navbar.Brand style={{ color: "#FFFFFF", fontSize: "22px" }} href="/">
-          Course Buddy
+    <Navbar expand="md" style={{ backgroundColor: "#343A40" }}>
+      <Navbar.Brand style={{ color: "white", fontSize: "22px" }} href="/">
+        Course Buddy
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
