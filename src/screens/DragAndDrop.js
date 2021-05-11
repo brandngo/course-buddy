@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import firebase from "firebase";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
@@ -88,6 +88,8 @@ const sanitize = (arr) => {
   return arr ? arr : [];
 }
 
+const courses = ["1a", "1b", "2a", "2b", "3a", "3b"];
+
 function getData(data) {
   const compile = {
     "1a": sanitize(data["4"]),
@@ -104,6 +106,17 @@ function getData(data) {
   console.log(compile);
   return compile;
 
+}
+
+function dataLoop(yi) {
+  const r = [];
+  for (let i = 0; i < courses.length; i++) {
+    if (yi[courses[i]]) {
+      r.push(yi[courses[i]]);
+
+    }
+  }
+  return r;
 }
 
 function DragAndDrop() {
@@ -134,6 +147,33 @@ function DragAndDrop() {
     }
   }
 
+  function exportData() {
+    var ref = firebase.database().ref("tables");
+    ref.child(firebase.auth().currentUser.uid).set({
+      data: getData(state)
+    });
+  }
+
+  useEffect(() => {
+    var uid = firebase.auth().currentUser.uid;
+    console.log(uid);
+    firebase.
+      database().
+      ref(`tables/${firebase.auth().currentUser.uid}`)
+      .on("value", (snap) => {
+        if (snap.exists()) {
+          var receivedData = snap.val().data;
+          console.log(receivedData);
+          var courseArr = Object.values(receivedData);
+
+          setState([...state, ...dataLoop(receivedData)]);
+          console.log(state);
+        }
+      }
+      )
+    console.log(state);
+  }, [])
+
   return (
     <Styles>
       <div>
@@ -154,6 +194,7 @@ function DragAndDrop() {
           retrieve
         </button>
         <button onClick={() => firebase.auth().signOut()}>Sign Out</button>
+        <button onClick={() => exportData()}>Save</button>
         <ScrollContainer>
           <div style={{ display: "flex", height: "60%" }}>
             <DragDropContext onDragEnd={onDragEnd}>
